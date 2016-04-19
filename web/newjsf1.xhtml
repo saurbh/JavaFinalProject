@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="styles2.css"/> 
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <div id="logo">
+                <h1><a href="#">Creevykeel</a></h1>
+                <p>Template Design by CSS Templates</p>
+            </div>
+            <div id="header">
+                <div id="tfheader"/>
+                <h:form>
+                    <h:inputText class="tftextinput" value="#{postController.searchValue}"></h:inputText>
+                    <h:commandButton class="tfbutton" value="search" action="#{postController.getPostByTitle(postController.searchValue)}"/>
+
+                </h:form>
+                <form id="tfnewsearch" method="get" action="http://www.google.com">
+                    <input type="text" class="tftextinput" name="q" size="21" maxlength="120"/>
+                    <input type="submit" value="Search" class="tfbutton"/>
+                </form>
+                <div class="tfclear"></div>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="first"><a href="#" accesskey="1" title="">Services</a></li>
+                    <li><a href="#" accesskey="2" title="">Our Clients</a></li>
+                    <li><a href="#" accesskey="3" title="">About Us</a></li>
+                    <li><a href="#" accesskey="4" title="">Careers</a></li>
+                    <li><a href="#" accesskey="5" title="">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="page">
+            <div id="content">
+
+                <div class="post">
+                    <h:dataTable 
+                        styleClass="Table"
+                        headerClass="Header"
+                        rowClasses="Row"
+                        columnClasses="column1,column2,column3,column4,column5,column6,column7"
+                        value="#{postController.posts}" var="restaurant">
+
+                        <h:column headerClass="th">
+                            <f:facet name="header">Name</f:facet>
+                            <h:form> 
+                                <h:commandLink action="#{postController.viewPost(restaurant)}">#{restaurant.name} </h:commandLink>    
+                            </h:form> 
+                        </h:column>
+                        <h:column headerClass="th">
+                            <f:facet name="header">Menu</f:facet>
+                                #{restaurant.menu}
+                        </h:column>
+                        <h:column headerClass="th">
+                            <f:facet name="header">Price</f:facet>
+                                #{restaurant.price}
+                        </h:column>        
+                        <h:column headerClass="th">
+                            <f:facet name="header">Address</f:facet>
+                                #{restaurant.address}
+                        </h:column>        
+                        <h:column headerClass="th">
+                            <f:facet name="header">Phone</f:facet>
+                                #{restaurant.phone}
+                        </h:column>        
+                        <h:column headerClass="th">
+                            <f:facet name="header">Rating</f:facet>
+                            <h:graphicImage value="#{restaurant.rating_image_url}"/>
+                        </h:column>
+                        <h:column headerClass="th">
+                            <f:facet name="header">Rating_hidden</f:facet>
+                                #{restaurant.rating}
+                        </h:column>  
+
+
+                    </h:dataTable>
+
+
+                </div>
+
+                <div>
+                </div>
+                <div style="clear: both;">&nbsp;</div>
+            </div>
+
+            <div id="sidebar">
+                <h2>Categories</h2>
+                <ul>
+                    <li><a href="#">Aliquam libero</a></li>
+                    <li><a href="#">Consectetuer adipiscing elit</a></li>
+                    <li><a href="#">Metus aliquam pellentesque</a></li>
+                    <li><a href="#">Suspendisse iaculis mauris</a></li>
+                    <li><a href="#">Urnanet non molestie semper</a></li>
+                    <li><a href="#">Proin gravida orci porttitor</a></li>
+                </ul>
+            </div>
+        </div>
+    </h:body>
+</html>
+

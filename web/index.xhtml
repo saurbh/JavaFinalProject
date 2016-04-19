@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="styles2.css"/> 
+        <h:outputStylesheet library="css" name="styles.css"/> 
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <div id="logo">
+                <h1><a href="index.xhtml">Sarnia Foodies</a></h1>
+                <br/>
+                <p>Enjoy sarnia with taste</p>
+            </div>
+            <div id="header">
+                <div id="tfheader"/>
+                <h:form id="tfnewsearch">
+                    <h:inputText class="tftextinput" value="#{postController.searchValue}"></h:inputText>
+                    <h:commandButton class="tfbutton" value="search" action="#{postController.getPostByTitle(postController.searchValue)}"/>
+
+                </h:form>
+
+                <div class="tfclear"></div>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="first"><a href="index.xhtml" accesskey="1" title="">Home</a></li>
+                    <li><a href="#" accesskey="2" title="">Restaurants</a></li>
+                    <li><a href="aboutus.xhtml" accesskey="3" title="">About Us</a></li>
+                    <li><a href="#" accesskey="4" title="">Careers</a></li>
+                    <li><a href="#" accesskey="5" title="">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="page">
+
+            <h:dataTable 
+                styleClass="Table"
+                headerClass="Header"
+                rowClasses="Row"
+                columnClasses="column1,column2,column3,column4,column5,column6,column7"
+                value="#{postController.posts}" var="restaurant">
+
+                <h:column headerClass="th">
+                    <f:facet name="header">Name</f:facet>
+                    <h:form> 
+                        <h:commandLink action="#{postController.viewPost(restaurant)}">#{restaurant.name} </h:commandLink>    
+                    </h:form> 
+                </h:column>
+                <h:column headerClass="th">
+                    <f:facet name="header">Menu</f:facet>
+                        #{restaurant.menu}
+                </h:column>
+                <h:column headerClass="th">
+                    <f:facet name="header">Price</f:facet>
+                        #{restaurant.price}
+                </h:column>        
+                <h:column headerClass="th">
+                    <f:facet name="header">Address</f:facet>
+                        #{restaurant.address}
+                </h:column>        
+                <h:column headerClass="th">
+                    <f:facet name="header">Phone</f:facet>
+                        #{restaurant.phone}
+                </h:column>        
+                <h:column headerClass="th">
+                    <f:facet name="header">Rating</f:facet>
+                    <h:graphicImage value="#{restaurant.rating_image_url}"/>
+                </h:column>
+                <h:column headerClass="th">
+                    <f:facet name="header">Rating_hidden</f:facet>
+                        #{restaurant.rating}
+                </h:column>  
+
+
+                <h:form>
+                    <h:inputText value="#{userBean.userName}" />
+                    <h:commandButton value="Submit" action="user" />
+                </h:form>
+
+            </h:dataTable>
+        </div>
+    </h:body>
+
+    <footer><p class="lf">&copy; Copyright Sarnia Foodies</p> </footer>
+
+</html>
+

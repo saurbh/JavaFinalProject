@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Sarnia Foodies</title>
+        <h:outputStylesheet library="css" name="styles2.css"/> 
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <div id="logo">
+                <h1><a href="index.xhtml">Sarnia Foodies</a></h1>
+                <br/>
+                <p>Enjoy sarnia with taste</p>
+            </div>
+            <div id="header">
+                <div id="tfheader"/>
+                <h:form id="tfnewsearch">
+                    <h:inputText class="tftextinput" value="#{postController.searchValue}"></h:inputText>
+                    <h:commandButton class="tfbutton" value="search" action="#{postController.getPostByTitle(postController.searchValue)}"/>
+
+                </h:form>
+
+                <div class="tfclear"></div>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="first"><a href="index.xhtml" accesskey="1" title="">Home</a></li>
+                    <li><a href="#" accesskey="2" title="">Restaurants</a></li>
+                    <li><a href="aboutus.xhtml" accesskey="3" title="">About Us</a></li>
+                    <li><a href="#" accesskey="4" title="">Careers</a></li>
+                    <li><a href="#" accesskey="5" title="">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="page">
+            <h2>About Us</h2>
+            <br/>
+            <p>The website will be targeted at people who first visit to Sarnia.
+                In this web site, users will be able to search the locations of 
+                the nice restaurants around them, and people’s reviews on them about menu, price, 
+                interior, and atmosphere, etc. In addition to the above information, the site will
+                tell users how to reach the restaurants that users have found out on bus maps. 
+                Also, users can post and share their text and photo reviews on the restaurants that they visited on this website.
+                This function will make this website’s contents plentiful.
+                Other functions may be added appropriately based on our understanding of Java’s various new
+                technologies as this project progresses. </p>
+
+        </div>
+    </h:body>
+
+    <footer><p class="lf">&copy; Copyright Sarnia Foodies</p> </footer>
+
+</html>
+

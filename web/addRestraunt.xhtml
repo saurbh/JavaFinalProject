@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add Restraunt</title>
+        <h:outputStylesheet library="css" name="styles2.css"/> 
+        <h:outputStylesheet library="css" name="styles.css"/> 
+        <!--        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+                <h:outputStylesheet library="cs s" name="product.css"/>
+                <h:outputStylesheet library="css" name="user-style.css"/>-->
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <div id="logo">
+                <h1><a href="index.xhtml">Sarnia Foodies</a></h1>
+                <br/>
+                <p>Enjoy sarnia with taste</p>
+            </div>
+            <div id="header">
+                <div id="tfheader"/>
+                <h:form id="tfnewsearch">
+                    <h:inputText class="tftextinput" value="#{postController.searchValue}"></h:inputText>
+                    <h:commandButton class="tfbutton" value="search" action="#{postController.getPostByTitle(postController.searchValue)}"/>
+
+                </h:form>
+
+                <div class="tfclear"></div>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="first"><a href="index.xhtml" accesskey="1" title="">Home</a></li>
+                    <li><a href="#" accesskey="2" title="">Restaurants</a></li>
+                    <li><a href="aboutus.xhtml" accesskey="3" title="">About Us</a></li>
+                    <li><a href="#" accesskey="4" title="">Careers</a></li>
+                    <li><a href="#" accesskey="5" title="">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="page">
+
+            <!--        <h:outputStylesheet library="css" name="email.css"/>
+                    <h:outputStylesheet library="css" name="email.css"/>-->
+            <div class="row">
+                <section id="mainbar" name="contact_form">
+                    <h:form>
+                        <fieldset>
+                            <legend id="firstLegend">Please enter the following information</legend>
+                            <div class="form-group">
+                                <label for="firstName" >ID</label>
+                                <h:inputText value="#{postController.currentPost.id}"></h:inputText>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <h:outputText value="Name" class="label"/>
+                                <h:inputText value="#{postController.currentPost.name}"/>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <label for="firstName" >Menu</label>
+                                <h:inputText value="#{postController.currentPost.menu}"/>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <label for="firstName" >Price</label>
+                                <h:inputText value="#{postController.currentPost.price}"/>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+
+                                <h:outputText value="Phone"/>
+                                <h:inputText value="#{postController.currentPost.phone}"/>
+                            </div>
+                            <br/>
+                            <div class="form-group">    
+                                <h:outputText value="Address"/>
+                                <h:inputText value="#{postController.currentPost.address}"/>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <h:outputText value="Postal_code"/>
+                                <h:inputText value="#{postController.currentPost.postal_code}"/>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <h:outputText value="Country Code"/>
+                                <h:inputText value="#{postController.currentPost.country_code}"/>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <h:outputText value="Latitude"/>
+                                <h:inputText value="#{postController.currentPost.latitude}"/>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <h:outputText value="Longitude"/>
+                                <h:inputText value="#{postController.currentPost.longitude}"/>
+                            </div>
+                            <br/>
+
+                            <div class="form-group">
+                                <h:outputText value="Mobile URL"/>
+                                <h:inputText value="#{postController.currentPost.mobile_url}"/>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <h:outputText value="Rating"/>
+                                <h:inputText value="#{postController.currentPost.rating}"/>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <h:outputText value="Snippet Text"/>
+                                <h:inputText value="#{postController.currentPost.snippet_text}"/>
+                            </div>
+                            <br/>
+                            <h:commandButton action="#{postController.addPost()}" value="Add Post"></h:commandButton>
+                        </fieldset>
+                    </h:form>
+                </section>
+            </div>
+        </div>
+    </h:body>
+
+    <footer><p class="lf">&copy; Copyright Sarnia Foodies</p> </footer>
+
+</html>
+

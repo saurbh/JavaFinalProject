@@ -1,0 +1,182 @@
+/*Styles for Term Project */
+/*
+Author Saurabh Khera
+*/
+@font-face {
+    font-family: 'superlativeregular';
+    src: url('../fonts/superlative.eot');
+    src: url('../fonts/superlative.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/superlative.woff2') format('woff2'),
+        url('../fonts/superlative.woff') format('woff'),
+        url('../fonts/superlative.ttf') format('truetype'),
+        url('../fonts/superlative.svg#superlativeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+article, aside, figure, footer, header,nav, section {
+    display: block;
+}
+
+html{
+    background-image: url(../images/watch.jpg);
+}
+body  {
+    font-family: 'Lato', sans-serif;
+    /*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+    width:860px;
+    background-color:white;
+    border:1px solid black;
+    margin:auto;
+    padding:10px;
+}
+h2.minus {
+    background: url(../images/minus.png) no-repeat left center;
+}
+a{
+    font-weight: bold;
+    color:black;
+}
+a:hover, a:focus { 
+    color: orange;
+
+}
+
+nav{
+    border-top:1px black solid;
+    border-bottom:1px black solid;	
+
+}
+nav ul li{
+    display:inline;
+    padding: 0 40px 0 40px;
+}
+.sidelist {
+    padding: 0;
+    line-height: 1.5em;
+}
+.sidelist a{
+    text-decoration:none;
+}
+
+.sidelist a li{
+    padding: 10px;
+    font-size:21px;
+    list-style: none;
+    text-align: center;
+    width: 180px;
+    color: whitesmoke;
+    margin-bottom: 37px;
+    background-color: #15545F;
+
+}
+/*Paragraph css*/
+
+img.align {
+    /*width:150px;
+    float: left;
+    margin-right: 10px;*/
+    height: 209px;
+}
+img.small{
+    width:60%;
+    margin: 0 auto;
+    margin-bottom: 16px;	
+}
+figcaption{
+    text-align: center;
+    font-size: 127%;
+}
+aside{
+    margin-top: 51px;
+}
+p{
+    margin-left: 147px;
+    text-align:justify;
+    padding: 10px;
+    line-height: 1.5em;
+}
+header img { 
+    float: left; 
+} 
+header h1 {
+    font-size: 250%;
+    font-style: italic;
+    color: #ECAE3B;
+    text-indent: 25px;
+    text-shadow: 2px 2px 2px black;
+}
+header h2 {
+    font-size: 125%;
+    text-indent: 25px;
+}
+
+/* Section */
+section h2 {
+    color: #777;
+    font-size: 140%;
+}
+section h3 {
+    font-size: 150%;
+}
+
+/*Table*/
+table.product
+{
+    width:90%;	
+    border-collapse: collapse;
+    font-family:Arial, Verdana and sans-serif;
+    margin-top: 35px;
+}
+caption
+{
+    font-weight: bold;
+    caption-side: top;
+    text-align: center;
+    font-size: 1.8em;
+}
+table,th,td
+{
+    font-size:1em;
+    vertical-align:top;
+    padding:5px;
+}
+tr
+{
+    height:25px;	
+}
+thead tr
+{
+    color:Grey;
+
+}
+thead th{	
+    font-size:1.5em;
+    background-color:white;
+}
+.category
+{
+    font-weight:bold;
+    width:10%;
+    background-color:rgb(232, 232, 232);
+}
+.descreption
+{
+    width:11%;
+    background-color:rgb(239, 255, 254);
+}
+.price{
+    width:17%;
+    background-color:rgb(255, 231, 255);;
+}
+
+
+/* Footer */
+footer  {
+    padding: 10px;
+    height: 39px;
+    color:white;
+    background-color:#15545F;
+    font-size: 90%;
+    text-align: center;
+    clear:both;
+}

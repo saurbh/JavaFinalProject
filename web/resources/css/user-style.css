@@ -1,0 +1,94 @@
+
+@font-face {
+    font-family: 'superlativeregular';
+    src: url('../fonts/superlative.eot');
+    src: url('../fonts/superlative.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/superlative.woff2') format('woff2'),
+        url('../fonts/superlative.woff') format('woff'),
+        url('../fonts/superlative.ttf') format('truetype'),
+        url('../fonts/superlative.svg#superlativeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    width:80%;
+    margin:0 auto;	
+}
+.container{
+    width:100%;
+}
+
+.page-header img{
+    float:left;
+}
+.page-header a{
+    color:#15545F;
+}
+a:hover{
+    text-decoration:none;
+}
+.page-header{
+    background-image:url(../images/header.jpg);
+    margin-bottom: 7px;
+    margin-top:0px;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.page-header h1{
+    float: left;
+    margin-bottom: 7px;
+    margin-left: 30px;
+    color: #15545F;
+    font-weight: bold;
+    font-size: 407%;
+}
+.page-header h2{
+    margin-left: 56px;
+    clear: both;
+    font-size: 214%;
+}
+.jumbotron{
+    background-image:url(../images/banner.jpg);
+}
+.jumbotron p{
+    width: 59%;
+    background-color:rgba(0,0,0,0.1);
+}
+
+/*Form CSS */
+fieldset{
+    border: 1px solid silver;
+    padding-left: 26px;
+    width: 70%;
+    margin-bottom: 19px;
+}
+legend{
+    width: 71%;
+    padding: 12px;
+    border:none;
+}
+form{
+    margin-bottom:25px;	
+}
+.form-control{
+    width: 80%;
+}
+select{
+    width: 23%;
+}
+input[type=submit]{
+    width: 20%;
+}
+.error{
+    color:red;
+}
+/*Product Image*/
+.img-thumbnail{
+    margin-left:98px;
+    margin-bottom:15px;
+}
+figure{
+    text-align: center;
+    margin-top: 13px;
+}

@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Sarnia Foodies</title>
+        <h:outputStylesheet library="css" name="styles2.css"/> 
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <div id="logo">
+                <h1><a href="index.xhtml">Sarnia Foodies</a></h1>
+                <br/>
+                <p>Enjoy sarnia with taste</p>
+            </div>
+            <div id="header">
+                <div id="tfheader"/>
+                <h:form id="tfnewsearch">
+                    <h:inputText class="tftextinput" value="#{postController.searchValue}"></h:inputText>
+                    <h:commandButton class="tfbutton" value="search" action="#{postController.getPostByTitle(postController.searchValue)}"/>
+
+                </h:form>
+
+                <div class="tfclear"></div>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="first"><a href="index.xhtml" accesskey="1" title="">Home</a></li>
+                    <li><a href="#" accesskey="2" title="">Restaurants</a></li>
+                    <li><a href="aboutus.xhtml" accesskey="3" title="">About Us</a></li>
+                    <li><a href="#" accesskey="4" title="">Careers</a></li>
+                    <li><a href="#" accesskey="5" title="">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="page">
+            <div id="content">
+                <div class="post">
+                    <h2 class="title"><a href="#">#{postController.currentPost.name} #{post.name} </a></h2>
+                    <div class="entry">
+                        <p><img src="icon.jpg" width="143" height="143" alt="" class="alignleft border" />
+                            Address : #{postController.currentPost.address} #{post.address}<br/>
+                            Menu : #{postController.currentPost.menu}<br/>
+                            Price : #{postController.currentPost.price}<br/>
+                            Phone: #{postController.currentPost.phone}<br/>
+
+                        </p>
+
+                        <p class="clearfix">&nbsp;</p>
+                    </div>
+
+
+                    <h:form>
+
+                        <p:growl id="growl" sticky="true" showDetail="true"/>
+
+                        <p:wizard flowListener="#{userWizard.onFlowProcess}">
+                            <p:tab id="personal" title="Personal">
+                                <p:panel header="Personal Details">
+                                    <p:messages />
+                                    <h:panelGrid columns="2" columnClasses="label, value">
+                                        <h:outputText value="Firstname: *" />
+                                        <p:inputText value="#{userWizard.user.firstname}" required="true" label="Firstname"/>
+
+                                        <h:outputText value="Lastname: *" />
+                                        <p:inputText value="#{userWizard.user.lastname}" required="true" label="Lastname"/>
+
+                                        <!--<h:outputText value="Skip to last: " />
+                                        <h:selectBooleanCheckbox value="#{userWizard.skip}" />!-->
+                                    </h:panelGrid>
+                                </p:panel>
+                            </p:tab>
+
+                            <p:tab id="contact" title="Comment">
+                                <p:panel header="Comment Information">
+                                    <p:messages />
+                                    <h:panelGrid columns="2" columnClasses="label, value">
+                                        <h:outputText value="Email: *" />
+                                        <p:inputText value="#{userWizard.user.email}" required="true" label="Email"/>
+
+
+                                        <h:outputText value="Comment: " />
+                                        <p:inputText value="#{userWizard.user.info}"/>
+                                    </h:panelGrid>
+                                </p:panel>
+                            </p:tab>
+
+                            <p:tab id="confirm" title="Confirmation">
+                                <p:panel header="Confirmation">
+                                    <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
+                                        <h:panelGrid columns="2" columnClasses="label, value">
+                                            <h:outputText value="Firstname: " />
+                                            <h:outputText value="#{userWizard.user.firstname}" styleClass="outputLabel"/>
+
+                                            <h:outputText value="Lastname: " />
+                                            <h:outputText value="#{userWizard.user.lastname}" styleClass="outputLabel"/>
+
+                                        </h:panelGrid>
+
+
+                                        <h:panelGrid columns="2" columnClasses="label, value">
+                                            <h:outputText value="Email: " />
+                                            <h:outputText value="#{userWizard.user.email}" styleClass="outputLabel"/>
+
+
+                                            <h:outputText value="Comment: " />
+                                            <h:outputText value="#{userWizard.user.info}" styleClass="outputLabel"/>
+
+                                            <h:outputText />
+                                            <h:outputText />
+                                        </h:panelGrid>
+                                    </h:panelGrid>
+
+                                    <p:commandButton value="Submit" actionListener="#{userWizard.save}" update="growl" process="@this"/>
+                                </p:panel>
+                            </p:tab>
+                        </p:wizard>
+
+                    </h:form>    
+
+
+
+
+                    <h:form>
+                        <p:growl id="messages" showDetail="true" />
+
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <h:outputText value="Basic:" />
+                            <p:rating value="#{ratingView.rating1}" />
+
+
+                        </h:panelGrid>
+
+                        <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" style="margin:5px" />
+
+                        <p:dialog header="Values" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+                            <h:panelGrid id="display" columns="2" cellpadding="5">
+                                <h:outputText value="Rating: " />
+                                <h:outputText value="#{ratingView.rating1}" />
+
+
+                            </h:panelGrid>
+                        </p:dialog>
+                    </h:form>
+                    
+                    <p>
+                        <h:dataTable 
+                            styleClass="Table"
+                            headerClass="Header"
+                            rowClasses="Row"
+                            columnClasses="column1"
+                            value="#{userWizard.users}" var="comments">
+                            <h:column headerClass="th">
+                                <f:facet name="header">Commentas</f:facet>
+                                    #{comments.info}
+                            </h:column>
+                            
+                        </h:dataTable>
+                    </p>
+
+                </div>
+                <div>
+
+
+                </div>
+                <div style="clear: both;">&nbsp;</div>
+            </div>
+
+            <div id="sidebar">
+                <h2>Food Quotes</h2>
+                <p>“I have made a lot of mistakes falling in love, and regretted most of them, but never the potatoes that went with them.” -Nora Ephron
+
+                </p>
+            </div>
+        </div>
+    </h:body>
+
+    <footer><p class="lf">&copy; Copyright Sarnia Foodies</p> </footer>
+
+</html>
+
